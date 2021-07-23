@@ -15,8 +15,12 @@ describe('fizzBuzz',()=>{
         const result = exercise1.fizzBuzz(5)
         expect(result).toBe('Buzz')
     })
-    it('Should throw an error when the input is not a number',()=>{
+    it('Should throw an error when the input is not a number',()=>{ 
         
         expect(()=>{exercise1.fizzBuzz('test')}).toThrow()
+    })
+    it('Should return the input when the input is not divisible by both 3 and 5',()=>{
+        const result = exercise1.fizzBuzz(4)
+        expect(result).toBe(4)
     })
 })
