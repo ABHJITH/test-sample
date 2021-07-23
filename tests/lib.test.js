@@ -17,3 +17,10 @@ describe('absolute', ()=>{
         expect(result).toBe(0)
     })
 })
+
+describe('greet', ()=>{
+    it('Should return the greeting message',()=>{
+        const result = lib.greet('Abhi')
+        expect(result).toMatch(/Abhi/)
+    })
+})
