@@ -1,4 +1,5 @@
 const lib = require('../lib')
+const db =  require('../db')
  
 
 describe('absolute', ()=>{
@@ -75,3 +76,14 @@ describe('registerUser', ()=>{
     })
 })
 
+describe('applyDiscount', ()=>{
+    it('Should be apply discount if total price is greater than 10', ()=>{
+            db.getCustomerSync = function(id) { 
+                console.log('Reading a customer from MongoDB...');
+                return { id: id, points: 20 };
+              }
+             const order  = { customerId : 1, totalPrice:10};
+             lib.applyDiscount(order)
+             expect(order.totalPrice).toBe(9)
+    })
+})
